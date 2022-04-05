@@ -144,7 +144,7 @@ void get_word(char** dico,unsigned int size_dico, char* current_word)
     while (! stop)
     {   
         printf("entrez un mot de 5 lettres svp\n");
-        char* p = gets(buffer);
+        char* p = scanf(" %s",buffer);
         if (strlen(buffer)!=5)
         {
             printf("le mot ne fait pas 5 lettres\n");
@@ -176,12 +176,11 @@ int occurences (char* word, char letter)
 
 void printf_list(char* word)
 {
-    int i = 0;
-    while (word[i]!= '\0')
+    for(int i=0;i<strlen(word)+1;i++)
     {
         printf("%c",word[i]);
-        i++;
     }
+    printf("\n");
 }
 
 void  analyse(char* current_word, char* secret_word)
@@ -222,7 +221,7 @@ void  analyse(char* current_word, char* secret_word)
         }
     }
     printf("\n");
-    printf_list(list_presents);
+    //printf_list(list_presents);
     free(list_presents);
 }
 
@@ -235,7 +234,7 @@ int main(int argc, char* argv[])
     char** dico = load_file("dico_5.txt",&size_dico);
     char word[16];
     char* secret_word = word_select(dico,size_dico,word);
-    //printf("%s\n",secret_word);
+    printf("%s\n",secret_word);
     
 
     //fin de l'initialisation du jeu, début de la boucle
