@@ -225,7 +225,9 @@ double get_entropy(char* word_ref, char** word_array, unsigned int size_curr_dic
     }
     return(entropy);
 }
-
+/*
+Renvoie le mot avec la plus grande entropie
+*/
 char* get_best_word(char** word_array, char** config_array, int N, unsigned int size_curr_dico)
 {
     char* best_word = word_array[0];
@@ -247,7 +249,9 @@ char* get_best_word(char** word_array, char** config_array, int N, unsigned int 
     }
     return(best_word);
 }
-
+/*
+free un tableau de char*
+*/
 void free_tab_char(char** tab,int size_tab)
 {
     for(int i=0;i<size_tab;i++)
